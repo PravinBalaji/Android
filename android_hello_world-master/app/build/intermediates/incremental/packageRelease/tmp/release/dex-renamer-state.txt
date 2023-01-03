@@ -1,0 +1,4 @@
+#Mon Jan 02 07:47:05 UTC 2023
+base.0=/opt/android_hello_world-master/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

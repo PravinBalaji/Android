@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+    }
+    signingConfigs {
+
+        debug {
+
+            keyPassword 'android'
+
+            storeFile file('/AndroidKeystores/debug/android.keystore')
+
+            storePassword 'android'
+
+            keyAlias 'androiddebugkey'
+
+        }
+
+        release {
+
+            keyPassword 'spanplan123'
+
+            storeFile file('/AndroidKeystores/release/spanplan.keystore')
+
+            storePassword 'spanplan123'
+
+            keyAlias 'spanplan'
+
+        }
+
+    }
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        stage {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false
+        }
+
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false
+        }
+
+    }
+
+
+}
+
+dependencies {
+}
